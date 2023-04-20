@@ -7,21 +7,16 @@ import * as types from "./types";
 export const schema = makeSchema({
   types: [mutations, queries, types],
   contextType: {
-    module: join(process.cwd(), "src/graphql/context.ts"),
+    module: join(__dirname, "context.ts"),
     export: "Context",
     alias: "ctx",
   },
   sourceTypes: {
-    modules: [
-      {
-        module: join(process.cwd(), "src/graphql/sourceTypes/db.ts"),
-        alias: "db",
-      },
-    ],
+    modules: [{ module: ".prisma/client", alias: "PrismaClient" }],
   },
   outputs: {
-    schema: join(process.cwd(), "generated/schema.graphql"),
-    typegen: join(process.cwd(), "generated/graphql.d.ts"),
+    schema: join(__dirname, "../../generated/schema.graphql"),
+    typegen: join(__dirname, "../../generated/graphql.d.ts"),
   },
   plugins: [
     connectionPlugin({

@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-import type * as db from "./../src/graphql/sourceTypes/db"
+import type * as PrismaClient from ".prisma/client"
 import type { Context as ctx } from "./../src/graphql/context"
 import type { core, connectionPluginCore } from "nexus"
 declare global {
@@ -103,7 +103,7 @@ export interface NexusGenObjects {
     startCursor?: string | null; // String
   }
   Query: {};
-  User: db.User;
+  User: PrismaClient.User;
   UserConnection: { // root type
     edges?: Array<NexusGenRootTypes['UserEdge'] | null> | null; // [UserEdge]
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
