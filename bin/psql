@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+POSTGRES_HOST=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASS=postgres
+
+CURRENT_DIR=`basename $(pwd)`
+CONTAINER=`docker ps --filter name="$CURRENT_DIR-postgres" --format "{{.Names}}"`
+
+echo
+echo "============================================================"
+echo "> Connecting to $CONTAINER..."
+echo
+
+docker exec -it --env PGPASSWORD=$POSTGRES_PASS $CONTAINER psql -h $POSTGRES_HOST -U $POSTGRES_USER

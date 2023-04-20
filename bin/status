@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo
+echo "============================================================"
+echo "> Inspecting background services..."
+echo
+
+docker compose ps -a

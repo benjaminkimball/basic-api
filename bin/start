@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo
+echo "============================================================"
+echo "> Starting background services..."
+echo
+
+docker compose up -d --remove-orphans

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo
+echo "============================================================"
+echo "> Tailing background service logs..."
+echo
+
+docker compose logs -f
