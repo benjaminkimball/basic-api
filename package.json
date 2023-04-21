@@ -9,12 +9,12 @@
     "dev": "nodemon ./src/main.ts",
     "format": "prettier --write './src/**/*'",
     "lint": "eslint './src/**/*.ts'",
-    "prepush": "npm run types && npm run format && npm run lint && npm test",
-    "start": "npm run build && node ./dist/src/main.js",
+    "prepush": "pnpm types && pnpm format && pnpm lint && pnpm test",
+    "start": "pnpm build && node ./dist/src/main.js",
     "test": "jest --passWithNoTests",
-    "test:coverage": "npm test -- --coverage",
-    "test:watch": "npm test -- --watch",
-    "types": "npm run types:check && npm run types:graphql",
+    "test:coverage": "pnpm test -- --coverage",
+    "test:watch": "pnpm test -- --watch",
+    "types": "pnpm types:check && pnpm types:graphql",
     "types:check": "tsc --noEmit",
     "types:graphql": "rimraf ./generated && ts-node --transpileOnly ./scripts/generateGraphQLTypes.ts"
   },
@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/benjaminkimball/basic-api#readme",
   "volta": {
-    "node": "18.16.0",
-    "npm": "9.6.5"
+    "node": "18.16.0"
   },
+  "packageManager": "pnpm@8.3.1",
   "dependencies": {
-    "@apollo/server": "^4.6.0",
+    "@apollo/server": "^4.7.0",
     "@devoxa/prisma-relay-cursor-connection": "^2.2.2",
     "@prisma/client": "^4.13.0",
     "dotenv": "^16.0.3",
@@ -44,10 +44,10 @@
   "devDependencies": {
     "@tsconfig/node18": "^2.0.0",
     "@types/jest": "^29.5.1",
-    "@types/node": "^18.15.12",
+    "@types/node": "^18.15.13",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-security": "^1.7.1",
