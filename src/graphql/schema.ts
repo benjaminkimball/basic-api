@@ -12,7 +12,7 @@ export const schema = makeSchema({
     alias: "ctx",
   },
   sourceTypes: {
-    modules: [{ module: ".prisma/client", alias: "PrismaClient" }],
+    modules: [{ module: join(__dirname, "sourceTypes/db.ts"), alias: "db" }],
   },
   outputs: {
     schema: join(__dirname, "../../generated/schema.graphql"),
