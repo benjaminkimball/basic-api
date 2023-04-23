@@ -9,12 +9,12 @@
     "dev": "nodemon ./src/main.ts",
     "format": "prettier --write './src/**/*'",
     "lint": "eslint './src/**/*.ts'",
-    "prepush": "pnpm types && pnpm format && pnpm lint && pnpm test",
-    "start": "pnpm build && node ./dist/src/main.js",
+    "prepush": "npm run types && npm run format && npm run lint && npm test",
+    "start": "npm run build && node ./dist/src/main.js",
     "test": "jest --passWithNoTests",
-    "test:coverage": "pnpm test -- --coverage",
-    "test:watch": "pnpm test -- --watch",
-    "types": "pnpm types:check && pnpm types:graphql",
+    "test:coverage": "npm test -- --coverage",
+    "test:watch": "npm test -- --watch",
+    "types": "npm run types:check && npm run types:graphql",
     "types:check": "tsc --noEmit",
     "types:graphql": "rimraf ./generated && ts-node --transpileOnly ./scripts/generateGraphQLTypes.ts"
   },
@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/benjaminkimball/basic-api#readme",
   "volta": {
-    "node": "18.16.0"
+    "node": "18.16.0",
+    "npm": "9.6.5"
   },
-  "packageManager": "pnpm@8.3.1",
   "dependencies": {
     "@apollo/server": "^4.7.0",
     "@devoxa/prisma-relay-cursor-connection": "^2.2.2",
