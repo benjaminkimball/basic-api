@@ -1,6 +1,6 @@
 import { prisma } from "./db/client";
 import { createApolloServer } from "./graphql/server";
-import { logger } from "./logger/logger";
+import { logger } from "./logger";
 
 const port = parseInt(process.env.API_PORT || "4000");
 
