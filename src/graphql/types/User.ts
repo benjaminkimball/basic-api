@@ -5,7 +5,7 @@ export const User = objectType({
   definition(t) {
     t.id("id");
     t.email("email");
-    t.dateTime("createdAt");
-    t.dateTime("updatedAt");
+    t.datetime("createdAt");
+    t.datetime("updatedAt");
   },
 });

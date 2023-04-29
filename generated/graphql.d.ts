@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-import type * as db from "./../src/graphql/sourceTypes/db"
+import type * as PrismaClient from ".prisma/client"
 import type { Context as ctx } from "./../src/graphql/context"
 import type { core, connectionPluginCore } from "nexus"
 declare global {
@@ -15,7 +15,7 @@ declare global {
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
-    dateTime<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "DateTime";
+    datetime<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "DateTime";
     /**
      * A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.
      */
@@ -27,7 +27,7 @@ declare global {
     /**
      * A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones
      */
-    timeZone<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "TimeZone";
+    timezone<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "TimeZone";
   }
 }
 declare global {
@@ -39,7 +39,7 @@ declare global {
     /**
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
-    dateTime<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "DateTime";
+    datetime<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "DateTime";
     /**
      * A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.
      */
@@ -51,7 +51,7 @@ declare global {
     /**
      * A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones
      */
-    timeZone<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "TimeZone";
+    timezone<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "TimeZone";
     /**
      * Adds a Relay-style connection to the type, with numerous options for configuration
      *
@@ -103,7 +103,7 @@ export interface NexusGenObjects {
     startCursor?: string | null; // String
   }
   Query: {};
-  User: db.User;
+  User: PrismaClient.User;
   UserConnection: { // root type
     edges?: Array<NexusGenRootTypes['UserEdge'] | null> | null; // [UserEdge]
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!

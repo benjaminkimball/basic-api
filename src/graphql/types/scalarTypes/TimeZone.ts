@@ -1,4 +1,4 @@
 import { GraphQLTimeZone } from "graphql-scalars";
 import { asNexusMethod } from "nexus";
 
-export const TimeZone = asNexusMethod(GraphQLTimeZone, "timeZone");
+export const TimeZone = asNexusMethod(GraphQLTimeZone, "timezone");
