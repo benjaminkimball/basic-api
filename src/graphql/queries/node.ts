@@ -1,17 +1,14 @@
 import { idArg, nonNull, queryField } from "nexus";
-
-enum TypePrefix {
-  User = "usr",
-}
+import { parsePrefixedId, typePrefixes } from "../utils/prefixes";
 
 export const node = queryField("node", {
   type: "Node",
   args: { id: nonNull(idArg()) },
-  resolve(_src, { id: nodeId }, ctx) {
-    const [prefix, id] = nodeId.split("_");
+  resolve(_src, input, ctx) {
+    const { prefix, id } = parsePrefixedId(input.id);
 
     switch (prefix) {
-      case TypePrefix.User: {
+      case typePrefixes.User: {
         return ctx.db.user.findUnique({ where: { id } });
       }
 
