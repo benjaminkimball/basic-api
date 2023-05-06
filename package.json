@@ -6,11 +6,12 @@
     "db:deploy": "prisma migrate deploy",
     "db:dev": "prisma migrate dev",
     "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed",
     "dev": "nodemon ./src/main.ts",
     "format": "prettier --write './src/**/*'",
     "lint": "eslint './src/**/*.ts'",
     "prepush": "npm run types && npm run format && npm run lint && npm test",
-    "start": "npm run build && node ./dist/src/main.js",
+    "start": "npm run build && node ./dist/main.js",
     "test": "jest --passWithNoTests",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
@@ -28,9 +29,16 @@
     "url": "https://github.com/benjaminkimball/basic-api/issues"
   },
   "homepage": "https://github.com/benjaminkimball/basic-api#readme",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "volta": {
     "node": "18.16.0",
-    "npm": "9.6.5"
+    "npm": "9.6.6"
+  },
+  "prisma": {
+    "seed": "ts-node --esm --transpileOnly scripts/seedDatabase.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.7.0",
@@ -43,6 +51,7 @@
     "pino": "^8.11.0"
   },
   "devDependencies": {
+    "@ngneat/falso": "^6.4.0",
     "@tsconfig/node18": "^2.0.0",
     "@types/jest": "^29.5.1",
     "@types/node": "^18.15.13",
@@ -57,6 +66,7 @@
     "prettier": "^2.8.7",
     "prisma": "^4.13.0",
     "rimraf": "^5.0.0",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }

@@ -1,10 +1,9 @@
-import { ApolloServer, ContextFunction } from "@apollo/server";
-import {
-  StandaloneServerContextFunctionArgument,
-  startStandaloneServer,
-} from "@apollo/server/standalone";
-import { ListenOptions } from "net";
-import { Context } from "./context";
+import type { ContextFunction } from "@apollo/server";
+import { ApolloServer } from "@apollo/server";
+import type { StandaloneServerContextFunctionArgument } from "@apollo/server/standalone";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import type { ListenOptions } from "net";
+import type { Context } from "./context";
 import { schema } from "./schema";
 
 interface CreateApolloServerArgs {

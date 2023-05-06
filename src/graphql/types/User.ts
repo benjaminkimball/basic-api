@@ -3,9 +3,15 @@ import { objectType } from "nexus";
 export const User = objectType({
   name: "User",
   definition(t) {
-    t.id("id");
+    t.implements("Node");
+    t.id("id", {
+      resolve({ id }) {
+        return `usr_${id}`;
+      },
+    });
     t.email("email");
-    t.datetime("createdAt");
-    t.datetime("updatedAt");
+  },
+  isTypeOf({ email, password }) {
+    return Boolean(email) && Boolean(password);
   },
 });

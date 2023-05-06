@@ -22,6 +22,10 @@ type Mutation {
   signUp(input: SignUpInput!): SignUpPayload
 }
 
+interface Node {
+  id: ID
+}
+
 """
 PageInfo cursor, as defined in https://facebook.github.io/relay/graphql/connections.htm#sec-undefined.PageInfo
 """
@@ -48,6 +52,7 @@ type PageInfo {
 }
 
 type Query {
+  node(id: ID!): Node
   user(id: ID!): User
   users(
     """Returns the elements in the list that come after the specified cursor"""
@@ -92,11 +97,14 @@ A field whose value exists in the standard IANA Time Zone Database: https://www.
 """
 scalar TimeZone
 
-type User {
-  createdAt: DateTime
+"""
+A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+"""
+scalar URL
+
+type User implements Node {
   email: EmailAddress
   id: ID
-  updatedAt: DateTime
 }
 
 type UserConnection {

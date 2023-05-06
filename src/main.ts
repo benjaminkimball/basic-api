@@ -1,4 +1,4 @@
-import { prisma } from "./db/client";
+import { prisma } from "./db";
 import { createApolloServer } from "./graphql/server";
 import { logger } from "./logger";
 

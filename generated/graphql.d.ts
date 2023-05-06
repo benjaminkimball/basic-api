@@ -28,6 +28,10 @@ declare global {
      * A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones
      */
     timezone<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "TimeZone";
+    /**
+     * A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+     */
+    url<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "URL";
   }
 }
 declare global {
@@ -52,6 +56,10 @@ declare global {
      * A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones
      */
     timezone<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "TimeZone";
+    /**
+     * A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+     */
+    url<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "URL";
     /**
      * Adds a Relay-style connection to the type, with numerous options for configuration
      *
@@ -94,6 +102,7 @@ export interface NexusGenScalars {
   EmailAddress: any
   Time: any
   TimeZone: any
+  URL: any
 }
 
 export interface NexusGenObjects {
@@ -124,12 +133,13 @@ export interface NexusGenObjects {
 }
 
 export interface NexusGenInterfaces {
+  Node: NexusGenRootTypes['User'];
 }
 
 export interface NexusGenUnions {
 }
 
-export type NexusGenRootTypes = NexusGenObjects
+export type NexusGenRootTypes = NexusGenInterfaces & NexusGenObjects
 
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
@@ -145,6 +155,7 @@ export interface NexusGenFieldTypes {
     startCursor: string | null; // String
   }
   Query: { // field return type
+    node: NexusGenRootTypes['Node'] | null; // Node
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['UserConnection'] | null; // UserConnection
   }
@@ -155,10 +166,8 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User'] | null; // User
   }
   User: { // field return type
-    createdAt: NexusGenScalars['DateTime'] | null; // DateTime
     email: NexusGenScalars['EmailAddress'] | null; // EmailAddress
     id: string | null; // ID
-    updatedAt: NexusGenScalars['DateTime'] | null; // DateTime
   }
   UserConnection: { // field return type
     edges: Array<NexusGenRootTypes['UserEdge'] | null> | null; // [UserEdge]
@@ -168,6 +177,9 @@ export interface NexusGenFieldTypes {
   UserEdge: { // field return type
     cursor: string; // String!
     node: NexusGenRootTypes['User'] | null; // User
+  }
+  Node: { // field return type
+    id: string | null; // ID
   }
 }
 
@@ -183,6 +195,7 @@ export interface NexusGenFieldTypeNames {
     startCursor: 'String'
   }
   Query: { // field return type name
+    node: 'Node'
     user: 'User'
     users: 'UserConnection'
   }
@@ -193,10 +206,8 @@ export interface NexusGenFieldTypeNames {
     user: 'User'
   }
   User: { // field return type name
-    createdAt: 'DateTime'
     email: 'EmailAddress'
     id: 'ID'
-    updatedAt: 'DateTime'
   }
   UserConnection: { // field return type name
     edges: 'UserEdge'
@@ -206,6 +217,9 @@ export interface NexusGenFieldTypeNames {
   UserEdge: { // field return type name
     cursor: 'String'
     node: 'User'
+  }
+  Node: { // field return type name
+    id: 'ID'
   }
 }
 
@@ -219,6 +233,9 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    node: { // args
+      id: string; // ID!
+    }
     user: { // args
       id: string; // ID!
     }
@@ -232,9 +249,11 @@ export interface NexusGenArgTypes {
 }
 
 export interface NexusGenAbstractTypeMembers {
+  Node: "User"
 }
 
 export interface NexusGenTypeInterfaces {
+  User: "Node"
 }
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
@@ -243,21 +262,21 @@ export type NexusGenInputNames = keyof NexusGenInputs;
 
 export type NexusGenEnumNames = never;
 
-export type NexusGenInterfaceNames = never;
+export type NexusGenInterfaceNames = keyof NexusGenInterfaces;
 
 export type NexusGenScalarNames = keyof NexusGenScalars;
 
 export type NexusGenUnionNames = never;
 
-export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
+export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = "User";
 
 export type NexusGenAbstractsUsingStrategyResolveType = never;
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {
-    isTypeOf: false
-    resolveType: true
+    isTypeOf: true
     __typename: false
+    resolveType: false
   }
 }
 
