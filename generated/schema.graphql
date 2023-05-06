@@ -17,11 +17,6 @@ A field whose value conforms to the standard internet email address format as sp
 """
 scalar EmailAddress @specifiedBy(url: "https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address")
 
-type Mutation {
-  signIn(input: SignInInput!): SignInPayload
-  signUp(input: SignUpInput!): SignUpPayload
-}
-
 interface Node {
   id: ID
 }
@@ -68,24 +63,6 @@ type Query {
     """Returns the last n elements from the list."""
     last: Int
   ): UserConnection
-}
-
-input SignInInput {
-  email: EmailAddress!
-  password: String!
-}
-
-type SignInPayload {
-  user: User
-}
-
-input SignUpInput {
-  email: EmailAddress!
-  password: String!
-}
-
-type SignUpPayload {
-  user: User
 }
 
 """

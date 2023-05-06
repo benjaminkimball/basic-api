@@ -1,4 +1,4 @@
-import { randEmail, randPassword } from "@ngneat/falso";
+import { randEmail } from "@ngneat/falso";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { hashPassword } from "../src/auth";
 
@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 async function seedDatabase() {
   const data: Prisma.UserCreateManyInput[] = Array.from({ length: 50 }, () => {
-    const { hash: password, salt } = hashPassword(randPassword());
+    const { hash: password, salt } = hashPassword("Test1234!");
 
     return { email: randEmail(), password, salt };
   });

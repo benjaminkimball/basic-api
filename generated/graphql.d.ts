@@ -78,14 +78,6 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  SignInInput: { // input type
-    email: NexusGenScalars['EmailAddress']; // EmailAddress!
-    password: string; // String!
-  }
-  SignUpInput: { // input type
-    email: NexusGenScalars['EmailAddress']; // EmailAddress!
-    password: string; // String!
-  }
 }
 
 export interface NexusGenEnums {
@@ -106,7 +98,6 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
-  Mutation: {};
   PageInfo: { // root type
     endCursor?: string | null; // String
     hasNextPage: boolean; // Boolean!
@@ -114,12 +105,6 @@ export interface NexusGenObjects {
     startCursor?: string | null; // String
   }
   Query: {};
-  SignInPayload: { // root type
-    user?: NexusGenRootTypes['User'] | null; // User
-  }
-  SignUpPayload: { // root type
-    user?: NexusGenRootTypes['User'] | null; // User
-  }
   User: PrismaClient.User;
   UserConnection: { // root type
     edges?: Array<NexusGenRootTypes['UserEdge'] | null> | null; // [UserEdge]
@@ -144,10 +129,6 @@ export type NexusGenRootTypes = NexusGenInterfaces & NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
-  Mutation: { // field return type
-    signIn: NexusGenRootTypes['SignInPayload'] | null; // SignInPayload
-    signUp: NexusGenRootTypes['SignUpPayload'] | null; // SignUpPayload
-  }
   PageInfo: { // field return type
     endCursor: string | null; // String
     hasNextPage: boolean; // Boolean!
@@ -159,12 +140,6 @@ export interface NexusGenFieldTypes {
     ok: boolean | null; // Boolean
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['UserConnection'] | null; // UserConnection
-  }
-  SignInPayload: { // field return type
-    user: NexusGenRootTypes['User'] | null; // User
-  }
-  SignUpPayload: { // field return type
-    user: NexusGenRootTypes['User'] | null; // User
   }
   User: { // field return type
     email: NexusGenScalars['EmailAddress'] | null; // EmailAddress
@@ -185,10 +160,6 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenFieldTypeNames {
-  Mutation: { // field return type name
-    signIn: 'SignInPayload'
-    signUp: 'SignUpPayload'
-  }
   PageInfo: { // field return type name
     endCursor: 'String'
     hasNextPage: 'Boolean'
@@ -200,12 +171,6 @@ export interface NexusGenFieldTypeNames {
     ok: 'Boolean'
     user: 'User'
     users: 'UserConnection'
-  }
-  SignInPayload: { // field return type name
-    user: 'User'
-  }
-  SignUpPayload: { // field return type name
-    user: 'User'
   }
   User: { // field return type name
     email: 'EmailAddress'
@@ -226,14 +191,6 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
-  Mutation: {
-    signIn: { // args
-      input: NexusGenInputs['SignInInput']; // SignInInput!
-    }
-    signUp: { // args
-      input: NexusGenInputs['SignUpInput']; // SignUpInput!
-    }
-  }
   Query: {
     node: { // args
       id: string; // ID!
@@ -260,7 +217,7 @@ export interface NexusGenTypeInterfaces {
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = keyof NexusGenInputs;
+export type NexusGenInputNames = never;
 
 export type NexusGenEnumNames = never;
 
