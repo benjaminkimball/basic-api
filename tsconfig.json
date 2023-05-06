@@ -1,9 +1,8 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "rootDirs": ["src"],
     "outDir": "dist"
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "scripts", "jest.config.ts"]
+  "include": ["generated/**/*.d.ts", "src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
