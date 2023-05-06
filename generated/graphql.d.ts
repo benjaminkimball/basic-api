@@ -137,7 +137,6 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     node: NexusGenRootTypes['Node'] | null; // Node
-    ok: boolean | null; // Boolean
     user: NexusGenRootTypes['User'] | null; // User
     users: NexusGenRootTypes['UserConnection'] | null; // UserConnection
   }
@@ -168,7 +167,6 @@ export interface NexusGenFieldTypeNames {
   }
   Query: { // field return type name
     node: 'Node'
-    ok: 'Boolean'
     user: 'User'
     users: 'UserConnection'
   }

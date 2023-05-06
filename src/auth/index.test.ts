@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import type { User } from "@prisma/client";
 import { hashPassword, validatePassword } from ".";
 
 describe("auth", () => {

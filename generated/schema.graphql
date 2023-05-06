@@ -48,7 +48,6 @@ type PageInfo {
 
 type Query {
   node(id: ID!): Node
-  ok: Boolean
   user(id: ID!): User
   users(
     """Returns the elements in the list that come after the specified cursor"""
