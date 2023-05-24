@@ -20,9 +20,6 @@ export const schema = makeSchema({
     schema: join(rootDir, "generated/schema.graphql"),
     typegen: join(rootDir, "generated/graphql.d.ts"),
   },
-  features: {
-    abstractTypeStrategies: { isTypeOf: true },
-  },
   plugins: [
     connectionPlugin({
       extendConnection: {
