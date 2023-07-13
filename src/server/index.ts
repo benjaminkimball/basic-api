@@ -6,9 +6,9 @@ import helmet from "helmet";
 import type { Server } from "http";
 import { createServer } from "http";
 import pino from "pino-http";
-import { prisma } from "./db";
-import { createApolloServer } from "./graphql/server";
-import { logger, serializers } from "./logger";
+import { prisma } from "../db";
+import { createApolloServer } from "../graphql/server";
+import { logger, serializers } from "../logger";
 
 export async function createHttpServer(): Promise<Server> {
   const app = express();
@@ -27,7 +27,7 @@ export async function createHttpServer(): Promise<Server> {
     "/graphql",
     expressMiddleware(apollo, {
       context: async (ctx) => ({ ...ctx, db: prisma }),
-    })
+    }),
   );
 
   app.use("*", (_req, res) => {

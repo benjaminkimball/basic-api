@@ -8,7 +8,7 @@ export const users = queryField((t) => {
       return findManyCursorConnection(
         (args) => ctx.db.user.findMany({ ...args }),
         () => ctx.db.user.count(),
-        args
+        args,
       );
     },
   });
