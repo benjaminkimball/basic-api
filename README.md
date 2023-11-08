@@ -1,5 +1,7 @@
 # basic-api
 
+A cloneable template for bootstrapping Apollo Server/Prisma projects.
+
 ### Main `make` commands
 
 - `start` &mdash; Starts all services

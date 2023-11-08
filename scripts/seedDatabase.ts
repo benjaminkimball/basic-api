@@ -1,14 +1,9 @@
-import { randEmail } from "@ngneat/falso";
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function seedDatabase() {
-  const data: Prisma.UserCreateManyInput[] = Array.from({ length: 50 }, () => ({
-    email: randEmail(),
-  }));
-
-  await prisma.user.createMany({ data });
+  console.warn("No seeds configured!");
 }
 
 seedDatabase()

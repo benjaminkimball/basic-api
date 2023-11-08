@@ -1,5 +1,5 @@
-import type { PrismaClient } from "@prisma/client";
-import type { IncomingMessage, ServerResponse } from "http";
+import { PrismaClient } from "@prisma/client";
+import { IncomingMessage, ServerResponse } from "http";
 
 export interface Context {
   db: PrismaClient;

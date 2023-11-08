@@ -3,12 +3,11 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import { json } from "body-parser";
 import express from "express";
 import helmet from "helmet";
-import type { Server } from "http";
-import { createServer } from "http";
+import { Server, createServer } from "http";
 import pino from "pino-http";
-import { prisma } from "../db";
+import { prisma } from "../database";
 import { createApolloServer } from "../graphql/server";
-import { logger, serializers } from "../logger";
+import { logger } from "../logger";
 
 export async function createHttpServer(): Promise<Server> {
   const app = express();
@@ -21,7 +20,7 @@ export async function createHttpServer(): Promise<Server> {
 
   app.use(helmet({ contentSecurityPolicy: false }));
   app.use(json());
-  app.use(pino({ logger, serializers }));
+  app.use(pino({ logger }));
 
   app.use(
     "/graphql",
