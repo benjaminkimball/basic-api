@@ -31,12 +31,11 @@
   },
   "homepage": "https://github.com/benjaminkimball/basic-api#readme",
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": "20.x",
+    "npm": "10.x"
   },
   "volta": {
-    "node": "18.16.1",
-    "npm": "9.8.0"
+    "node": "20.9.0"
   },
   "prisma": {
     "seed": "ts-node --transpileOnly scripts/seedDatabase.ts"
